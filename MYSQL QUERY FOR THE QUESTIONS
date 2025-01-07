@@ -1,21 +1,109 @@
+-- --------------Generic ---------
+
+
 -- How many unique cities does the data have?
 
 SELECT DISTINCT
     city
 FROM
-    walmart;
+    sales;
 
 -- or -----
 
 SELECT 
     city
 FROM
-    walmart
+    sales
 GROUP BY city;
+
 
 --  In which city is each branch --
  
 SELECT DISTINCT
     city, branch
 FROM
-    walmart;
+    sales;
+
+
+-- ------- Product ------------
+
+-- How many unique product lines does the data have? --
+
+SELECT 
+    count(DISTINCT product_line)
+FROM
+    sales;
+
+--  What is the most common payment method? -- 
+
+SELECT 
+    payment, COUNT(payment) AS count
+FROM
+    sales
+GROUP BY payment
+ORDER BY count DESC;
+
+
+-- What is the most selling product line? --
+
+SELECT 
+    product_line, COUNT(product_line) AS count
+FROM
+    sales
+GROUP BY product_line
+ORDER BY count DESC
+LIMIT 1;
+
+-- What is the total revenue by month? --
+
+SELECT 
+    month_name, SUM(total) AS revenue
+FROM
+    sales
+GROUP BY month_name
+ORDER BY revenue DESC;
+
+
+-- What month had the largest COGS  --
+
+SELECT 
+    month_name, SUM(cogs) AS COGS
+FROM
+    sales
+GROUP BY month_name
+ORDER BY COGS DESC
+LIMIT 1;
+
+
+-- What product line had the largest revenue? -- 
+
+SELECT 
+    product_line, SUM(total) AS revenue
+FROM
+    sales
+GROUP BY product_line
+ORDER BY revenue DESC
+LIMIT 1;
+
+
+-- What is the city with the largest revenue? --
+
+select city, sum(total) as revenue
+from sales
+group by city
+order by revenue desc limit 1;
+
+
+-- What product line had the largest VAT? -- 
+
+SELECT 
+    product_line, SUM(tax_pct) AS VAT
+FROM
+    sales
+GROUP BY product_line
+ORDER BY VAT DESC
+LIMIT 1;
+
+
+
+
