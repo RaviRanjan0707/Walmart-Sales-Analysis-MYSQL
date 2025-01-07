@@ -1,0 +1,26 @@
+Project Overview
+This project uses Walmart’s sales data to analyze trends, store performance, and the impact of holidays on revenue. The goal is to derive meaningful insights to help Walmart optimize sales strategies, improve store operations, and plan better for holidays and peak seasons.
+
+Key Features
+
+Sales Trends: 
+Explore weekly, monthly, and yearly sales patterns.
+
+Store Performance: 
+Identify top-performing and underperforming stores
+
+Department Analysis:
+Understand which departments contribute most to sales.
+
+Holiday Impact:
+Analyze how holidays affect sales
+
+Seasonal Trends:
+Discover how different seasons influence sales.
+
+Tools Used
+Database: MySQL
+
+Outcomes
+This project delivers actionable insights into Walmart's sales data, helping businesses make informed decisions, improve planning, and maximize profitability.
+
