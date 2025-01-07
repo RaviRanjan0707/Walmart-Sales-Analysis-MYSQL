@@ -1,0 +1,21 @@
+-- How many unique cities does the data have?
+
+SELECT DISTINCT
+    city
+FROM
+    walmart;
+
+-- or -----
+
+SELECT 
+    city
+FROM
+    walmart
+GROUP BY city;
+
+--  In which city is each branch --
+ 
+SELECT DISTINCT
+    city, branch
+FROM
+    walmart;
