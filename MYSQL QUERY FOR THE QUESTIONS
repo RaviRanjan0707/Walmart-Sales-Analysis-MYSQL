@@ -105,19 +105,6 @@ ORDER BY VAT DESC
 LIMIT 1;
 
 
--- Fetch each product line and add a column to those product line  
--- showing "Good", "Bad". Good if its greater than average sales -- 
-
-
-
-
-
-
-
-
-
-
-
 --  write a query to find which branch has sales than the avg sales --
 
 SELECT 
@@ -264,3 +251,45 @@ ORDER BY count DESC;
 
 -- Write query to find in which time of day the customer has gave the most rating -- 
 
+SELECT 
+    time_of_day, AVG(rating) AS rating
+FROM
+    sales
+GROUP BY time_of_day
+ORDER BY rating DESC;
+
+
+-- Write a query to find the rating of customer in each time of the day by each branch --
+
+SELECT 
+    time_of_day, branch, SUM(rating) AS rating
+FROM
+    sales
+GROUP BY time_of_day , branch
+ORDER BY rating;
+
+
+--  Write a query to find the top 3 day with the highest average ratings by customer-- 
+
+SELECT 
+    day_name, AVG(rating) AS rating
+FROM
+    sales
+GROUP BY day_name
+ORDER BY rating DESC
+LIMIT 3;
+
+
+--  Write a query to find the top 3 day with the highest average ratings by customer for each branch --
+
+SELECT 
+    branch,
+    day_name,
+    AVG(rating) AS avg_rating
+FROM 
+    sales
+GROUP BY 
+    branch, day_name
+ORDER BY 
+    branch, avg_rating DESC
+LIMIT 3;
