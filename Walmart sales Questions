@@ -1,0 +1,45 @@
+Generic Question:
+
+1.	How many unique cities are there?
+2.	In which city each branch has?
+
+
+
+Product;
+
+1.	How many unique product lines are there?
+2.	which is the most common payment method?
+3.	Which is the most selling product line?
+4.	Write query to find total revenue by each month.
+5.	which month contains the highest COGS?
+6.	write a query to find the highest revenue by product line.
+7.	Which city generates the highest revenue?
+8.	Which product line has the highest VAT?
+9.	write a query to find which branch has sales than the avg sales.
+10.	Write a query to find count of gender in each product line by gender.
+11.	Write query for finding the avg rating of each product line
+
+
+
+Sales:
+
+1.	write query to find the total sales of each time of day by day.
+2.	write query to find Which customer type generates the highest revenue.
+3.	Which city has the highest VAT average?
+4.	Which customer type pays the highest VAT?
+
+
+
+Customer:
+
+1.	How many unique customer types are there?
+2.	How many unique payment methods are there?
+3.	Write query to find the count of most common customer type.
+4.	Which customer type brought the highest number of products?
+5.	Which gender have the highest customer type in sales?
+6.	What is the gender distribution by each branch?
+7.	Write query to find in which time of day the customer has gave the most rating.
+8.	Write a query to find the rating of customer in each time of the day by each branch.
+9.	Write a query to find the top 3 day with the highest average ratings by customer.
+10.	Write a query to find the top 3 day with the highest average ratings by customer for each branch.
+
