@@ -1,7 +1,7 @@
--- --------------GENERIC ---
+-- --------------GENERIC -------------
 
 
--- How many unique cities does the data have?
+-- How many unique cities are there ---
 
 SELECT DISTINCT
     city
@@ -17,7 +17,7 @@ FROM
 GROUP BY city;
 
 
---  In which city is each branch --
+--  In which city the each branch have --
  
 SELECT DISTINCT
     city, branch
@@ -27,14 +27,14 @@ FROM
 
 -- ------- PRODUCT -------
 
--- How many unique product lines does the data have? --
+-- How many unique product lines are there --
 
 SELECT 
     count(DISTINCT product_line)
 FROM
     sales;
 
---  What is the most common payment method? -- 
+--  which is the most common payment method? -- 
 
 SELECT 
     payment, COUNT(payment) AS count
@@ -44,7 +44,7 @@ GROUP BY payment
 ORDER BY count DESC;
 
 
--- What is the most selling product line? --
+-- Which is the most selling product line? --
 
 SELECT 
     product_line, COUNT(product_line) AS count
@@ -54,7 +54,7 @@ GROUP BY product_line
 ORDER BY count DESC
 LIMIT 1;
 
--- What is the total revenue by month? --
+-- Write query to find total revenue by each month --
 
 SELECT 
     month_name, SUM(total) AS revenue
@@ -64,7 +64,7 @@ GROUP BY month_name
 ORDER BY revenue DESC;
 
 
--- What month had the largest COGS  --
+-- which month contains the highest COGS --
 
 SELECT 
     month_name, SUM(cogs) AS COGS
@@ -75,7 +75,7 @@ ORDER BY COGS DESC
 LIMIT 1;
 
 
--- What product line had the largest revenue? -- 
+-- write a query to find the highest revenue by product line --
 
 SELECT 
     product_line, SUM(total) AS revenue
@@ -86,7 +86,7 @@ ORDER BY revenue DESC
 LIMIT 1;
 
 
--- What is the city with the largest revenue? --
+-- Which city generates the highest revenue --
 
 select city, sum(total) as revenue
 from sales
@@ -94,7 +94,7 @@ group by city
 order by revenue desc limit 1;
 
 
--- Which product line had the largest VAT --
+-- Which product line has the highest VAT --
 
 SELECT 
     product_line, SUM(tax_pct) AS VAT
@@ -118,7 +118,7 @@ LIMIT 1;
 
 
 
---  Which branch sold more products than average product sold? -- 
+--  write a query to find which branch has sales than the avg sales --
 
 SELECT 
     branch, AVG(quantity) AS avg
@@ -132,7 +132,7 @@ HAVING SUM(quantity) > (SELECT
 ORDER BY AVG(quantity) DESC;
 
 
--- What is the most common product line by gender? -- 
+-- Write a query to find count of gender in each product line by gender --
 
 SELECT 
     gender, product_line, COUNT(gender) AS count
@@ -142,7 +142,7 @@ GROUP BY gender , product_line
 ORDER BY COUNT(gender) DESC;
 
 
--- What is the average rating of each product line? -- 
+-- Write query for finding the avg rating of each product line ---
 
 SELECT 
     product_line, AVG(rating) AS avg
@@ -157,7 +157,7 @@ ORDER BY avg DESC;
 
 -- -------- SALES -----
 
--- Number of sales made in each time of the day per weekday--
+-- write query to find the total sales of each time of day by day ---
 
 SELECT 
     day_name, time_of_day, COUNT(invoice_id) AS sales
@@ -167,7 +167,7 @@ GROUP BY day_name , time_of_day
 ORDER BY sales DESC;
 
 
--- Which of the customer types brings the most revenue? --
+-- write query to find Which customer type generates the highest revenue --
 
 SELECT 
     customer_type, avg(total) as revenue
@@ -178,7 +178,7 @@ ORDER BY revenue DESC
 LIMIT 1;
 
 
--- Which city has the largest tax percent/ VAT (Value Added Tax)? -- 
+-- Which city has the highest VAt average --
 
 SELECT 
     city, AVG(tax_pct) AS VAT
@@ -189,7 +189,7 @@ ORDER BY VAT DESC
 LIMIT 1;
 
 
--- Which customer type pays the most in VAT?--
+-- Which customer type pays the highest VAT --
 
 SELECT 
     customer_type, SUM(tax_pct) AS VAT
@@ -198,4 +198,69 @@ FROM
 GROUP BY customer_type
 ORDER BY VAT DESC
 LIMIT 1;
+
+
+
+
+-- ------ CUSTOMER ------
+
+-- How many unique customer types are there --
+
+SELECT DISTINCT
+    customer_type
+FROM
+    sales;
+    
+    
+-- How many unique payment methods are there --
+
+SELECT DISTINCT
+    payment
+FROM
+    sales;
+    
+    
+-- Write query to find the count of most common customer type --
+
+SELECT 
+    customer_type, COUNT(customer_type) AS customer
+FROM
+    sales
+GROUP BY customer_type
+ORDER BY customer DESC
+LIMIT 1;
+
+
+-- Which customer type brought the highestest number of product --
+
+SELECT 
+    customer_type, COUNT(product_line) as count
+FROM
+    sales
+GROUP BY customer_type
+ORDER BY count DESC;
+
+
+-- Which  gender have the highest customer type in sales -- 
+
+SELECT 
+    gender, COUNT(customer_type) AS Customer
+FROM
+    sales
+GROUP BY gender
+ORDER BY customer DESC
+LIMIT 1;
+
+
+-- What is the gender distribution by each branch --
+
+SELECT 
+    branch, gender, COUNT(gender) AS count
+FROM
+    sales
+GROUP BY branch , gender
+ORDER BY count DESC;
+
+
+-- Write query to find in which time of day the customer has gave the most rating -- 
 
